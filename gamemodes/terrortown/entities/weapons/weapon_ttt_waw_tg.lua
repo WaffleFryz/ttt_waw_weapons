@@ -22,15 +22,15 @@ SWEP.WeaponID              = AMMO_SHOTGUN
 
 SWEP.Primary.Ammo          = "Buckshot"
 SWEP.Primary.Damage        = 11
-SWEP.Primary.Cone          = 0.082
-SWEP.Primary.Delay         = 0.8
-SWEP.Primary.ClipSize      = 8
+SWEP.Primary.Cone          = 0.077
+SWEP.Primary.Delay         = 0.98
+SWEP.Primary.ClipSize      = 6
 SWEP.Primary.ClipMax       = 24
-SWEP.Primary.DefaultClip   = 8
+SWEP.Primary.DefaultClip   = 6
 SWEP.Primary.Automatic     = true
 SWEP.Primary.NumShots      = 8
 SWEP.Primary.Sound         = Sound( "waw_trenchgun_new.Single" )
-SWEP.Primary.Recoil        = 7
+SWEP.Primary.Recoil        = 11
 
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
@@ -39,6 +39,8 @@ SWEP.AmmoEnt               = "item_box_buckshot_ttt"
 SWEP.UseHands              = true
 SWEP.ViewModel             = "models/weapons/v_waw_trenchgun_new.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_trenchgun_new.mdl"
+
+SWEP.DeploySpeed           = 0.85
 
 SWEP.IronSightsPos         = Vector(-3.7, -2, 4)
 SWEP.IronSightsAng         = Vector(-0.101, -0.7, -0.201)

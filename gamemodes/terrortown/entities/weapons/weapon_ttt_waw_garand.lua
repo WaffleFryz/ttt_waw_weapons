@@ -16,7 +16,7 @@ SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 0.27
 SWEP.Primary.Damage          = 34
-SWEP.Primary.Recoil          = 3
+SWEP.Primary.Recoil          = 3.1
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 8
 SWEP.Primary.ClipMax         = 24

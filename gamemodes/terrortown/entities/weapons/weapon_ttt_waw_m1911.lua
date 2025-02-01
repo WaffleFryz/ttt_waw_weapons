@@ -18,9 +18,9 @@ SWEP.Base                  = "weapon_tttbase"
 SWEP.Kind                  = WEAPON_PISTOL
 SWEP.WeaponID              = AMMO_PISTOL
 
-SWEP.Primary.Recoil        = 1.5
-SWEP.Primary.Damage        = 30
-SWEP.Primary.Delay         = 0.16
+SWEP.Primary.Recoil        = 2
+SWEP.Primary.Damage        = 25
+SWEP.Primary.Delay         = 0.27
 SWEP.Primary.Cone          = 0.02
 SWEP.Primary.ClipSize      = 8
 SWEP.Primary.Automatic     = true
@@ -28,6 +28,8 @@ SWEP.Primary.DefaultClip   = 8
 SWEP.Primary.ClipMax       = 64
 SWEP.Primary.Ammo          = "Pistol"
 SWEP.Primary.Sound         = Sound( "waw_1911.Single" )
+
+SWEP.HeadshotMultiplier    = 1.4
 
 SWEP.AutoSpawnable         = true
 SWEP.AmmoEnt               = "item_ammo_pistol_ttt"
