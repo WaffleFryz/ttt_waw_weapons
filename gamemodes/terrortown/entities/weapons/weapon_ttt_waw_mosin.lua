@@ -256,3 +256,23 @@ function SWEP:Deploy()
     end
  end
  
+ function SWEP:DrawWorldModel()
+   local owner = self:GetOwner()
+   
+   if IsValid(owner) then
+       local pos, ang = owner:GetBonePosition(owner:LookupBone("ValveBiped.Bip01_R_Hand"))
+
+       if pos and ang then
+           pos = pos + ang:Forward() * -1 + ang:Right() * 0.6 + ang:Up() * 0.43  -- Adjust offsets
+           ang:RotateAroundAxis(ang:Right(), -10)
+           ang:RotateAroundAxis(ang:Up(), -5)
+           ang:RotateAroundAxis(ang:Forward(), 180)
+
+           self:SetRenderOrigin(pos)
+           self:SetRenderAngles(ang)
+           self:DrawModel()
+       end
+   else
+       self:DrawModel()
+   end
+end

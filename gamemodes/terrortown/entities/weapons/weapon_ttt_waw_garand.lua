@@ -139,7 +139,7 @@ function SWEP:DrawWorldModel()
         local pos, ang = owner:GetBonePosition(owner:LookupBone("ValveBiped.Bip01_R_Hand"))
 
         if pos and ang then
-            pos = pos + ang:Forward() * -1 + ang:Right() * 0.6 + ang:Up() * 0.43  -- Adjust offsets
+            pos = pos + ang:Forward() * 1 + ang:Right() * 0.6 + ang:Up() * 0.5  -- Adjust offsets
             ang:RotateAroundAxis(ang:Right(), -10)
             ang:RotateAroundAxis(ang:Up(), -5)
             ang:RotateAroundAxis(ang:Forward(), 180)
