@@ -19,15 +19,17 @@ SWEP.Kind                  = WEAPON_PISTOL
 SWEP.WeaponID              = AMMO_PISTOL
 
 SWEP.Primary.Recoil        = 1.5
-SWEP.Primary.Damage        = 25
-SWEP.Primary.Delay         = 0.125
-SWEP.Primary.Cone          = 0.02
+SWEP.Primary.Damage        = 24
+SWEP.Primary.Delay         = 0.23
+SWEP.Primary.Cone          = 0.028
 SWEP.Primary.ClipSize      = 8
 SWEP.Primary.Automatic     = true
 SWEP.Primary.DefaultClip   = 8
 SWEP.Primary.ClipMax       = 60
 SWEP.Primary.Ammo          = "Pistol"
 SWEP.Primary.Sound         = Sound( "waw_tokarev.Single" )
+
+SWEP.HeadshotMultiplier    = 1.4
 
 SWEP.AutoSpawnable         = true
 SWEP.AmmoEnt               = "item_ammo_pistol_ttt"
