@@ -273,6 +273,8 @@ function SWEP:Deploy()
            self:DrawModel()
        end
    else
-       self:DrawModel()
+      self:SetRenderOrigin(nil)
+      self:SetRenderAngles(nil)
+      self:DrawModel()
    end
 end

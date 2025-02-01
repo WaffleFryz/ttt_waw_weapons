@@ -149,6 +149,8 @@ function SWEP:DrawWorldModel()
             self:DrawModel()
         end
     else
+        self:SetRenderOrigin(nil)
+        self:SetRenderAngles(nil)
         self:DrawModel()
     end
 end
