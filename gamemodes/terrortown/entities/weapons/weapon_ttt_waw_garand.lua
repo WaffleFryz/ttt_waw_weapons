@@ -35,7 +35,7 @@ SWEP.UseHands			   = true
 SWEP.ViewModel             = "models/weapons/v_waw_m1garand.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_m1garand.mdl"
 
-SWEP.IronSightsPos         = Vector(-5.02, -2, 0)
+SWEP.IronSightsPos         = Vector(-2.9, 0, 0)
 SWEP.IronSightsAng         = Vector(2.65, -0.5, -1)
 
 -- WAW Notes:
