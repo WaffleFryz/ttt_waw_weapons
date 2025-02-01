@@ -42,7 +42,7 @@ SWEP.IronSightsAng         = Vector(2.65, -0.5, -1)
 -- 444 rpm, 3.4 tac, 45-35 dmg, 1500m to 2000m
 
 function SWEP:GetViewModelPosition( pos, ang )
-    local offset = Vector(0, 3, -1)
+    local offset = Vector(3, 13, -2)
     pos = pos + offset.x * ang:Right()
     pos = pos + offset.y * ang:Forward()
     pos = pos + offset.z * ang:Up()
