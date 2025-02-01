@@ -27,7 +27,7 @@ SWEP.Primary.Automatic     = true
 SWEP.Primary.DefaultClip   = 8
 SWEP.Primary.ClipMax       = 60
 SWEP.Primary.Ammo          = "Pistol"
-SWEP.Primary.Sound         = Sound( "waw_tokarev.Fire" )
+SWEP.Primary.Sound         = Sound( "waw_tokarev.Single" )
 
 SWEP.AutoSpawnable         = true
 SWEP.AmmoEnt               = "item_ammo_pistol_ttt"
