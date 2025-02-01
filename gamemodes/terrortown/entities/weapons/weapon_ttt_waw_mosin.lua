@@ -59,7 +59,7 @@ function SWEP:SetupDataTables()
 
  -- Add some zoom to ironsights for this gun
 function SWEP:SecondaryAttack()
-    if not self.IronSightsPos then return end
+    if not self.IronSightsPos or self:GetReloadTimer() > CurTime() then return end
     if self:GetNextSecondaryFire() > CurTime() then return end
  
     local bIronsights = not self:GetIronsights()
@@ -101,6 +101,7 @@ function SWEP:StartReload()
     end
  
     self:SetIronsights( false )
+    self:SetZoom( false )
  
     self:SetNextPrimaryFire( CurTime() + self.Primary.Delay )
  
@@ -162,7 +163,7 @@ end
 function SWEP:Think()
     self.BaseClass.Think(self)
     if self:GetReloading() then
-       if self:GetOwner():KeyDown(IN_ATTACK) then
+       if self:GetOwner():KeyDown(IN_ATTACK) or self:GetOwner():KeyDown(IN_ATTACK2) then
           self:FinishReload()
           return
        end
