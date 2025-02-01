@@ -14,7 +14,7 @@ SWEP.HoldType                = "ar2"
 SWEP.Base                    = "weapon_tttbase"
 SWEP.Kind                    = WEAPON_HEAVY
 
-SWEP.Primary.Delay           = 1.25
+SWEP.Primary.Delay           = 1.4
 SWEP.Primary.Damage          = 50
 SWEP.Primary.Recoil          = 7
 SWEP.Primary.Automatic       = true
