@@ -14,7 +14,7 @@ SWEP.HoldType                = "ar2"
 SWEP.Base                    = "weapon_tttbase"
 SWEP.Kind                    = WEAPON_HEAVY
 
-SWEP.Primary.Delay           = 1.1
+SWEP.Primary.Delay           = 1.25
 SWEP.Primary.Damage          = 50
 SWEP.Primary.Recoil          = 7
 SWEP.Primary.Automatic       = true
@@ -23,11 +23,12 @@ SWEP.Primary.ClipMax         = 15
 SWEP.Primary.DefaultClip     = 5
 SWEP.Primary.Cone            = 0.018
 SWEP.Primary.Ammo            = "357"
-SWEP.Primary.Sound           = Sound("waw_mosin.Single")
+SWEP.Primary.Sound           = Sound("waw_mosin.Sniper")
 
 SWEP.Secondary.Sound       = Sound("Default.Zoom")
 
 SWEP.HeadshotMultiplier    = 4
+SWEP.DeploySpeed           = 0.75
 
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
