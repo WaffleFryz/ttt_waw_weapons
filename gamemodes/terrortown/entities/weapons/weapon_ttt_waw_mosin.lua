@@ -34,7 +34,7 @@ SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
 SWEP.AmmoEnt               = "item_ammo_357_ttt"
 
-SWEP.UseHands			   = true
+SWEP.UseHands			      = true
 SWEP.ViewModel             = "models/weapons/v_waw_mosin_scoped.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_mosin_irons.mdl"
 
@@ -90,7 +90,7 @@ function SWEP:SecondaryAttack()
        end
     end
  
- end
+end
 
 function SWEP:StartReload()
     if self:GetReloading() then
@@ -249,7 +249,7 @@ if CLIENT then
       end
    end
  
-function SWEP:AdjustMouseSensitivity()
+	function SWEP:AdjustMouseSensitivity()
        return (self:GetIronsights() and 0.2) or nil
     end
 end
