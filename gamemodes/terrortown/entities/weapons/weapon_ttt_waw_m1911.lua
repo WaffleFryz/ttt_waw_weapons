@@ -13,7 +13,7 @@ if CLIENT then
    SWEP.IconLetter         = "u"
 end
 
-SWEP.Base                  = "weapon_tttbase"
+SWEP.Base                  = "weapon_wawbase"
 
 SWEP.Kind                  = WEAPON_PISTOL
 SWEP.WeaponID              = AMMO_PISTOL
@@ -38,43 +38,18 @@ SWEP.UseHands              = true
 SWEP.ViewModel             = "models/weapons/v_waw_colt45.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_coltm1911.mdl"
 
+SWEP.WorldHandBoneOffset   = Vector(0.6, -3.4, 1.8)
+SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
+SWEP.VOffset               = Vector(3, 17, -1)
+
 SWEP.IronSightsPos         = Vector(-3.2, -4, 3.799)
 SWEP.IronSightsAng         = Vector(0, 0, 0)
 
-function SWEP:GetViewModelPosition( pos, ang )
-    local offset = Vector(3, 17, -1)
-    pos = pos + offset.x * ang:Right()
-    pos = pos + offset.y * ang:Forward()
-    pos = pos + offset.z * ang:Up()
-    return self.BaseClass.GetViewModelPosition(self, pos, ang)
-end
-
--- function SWEP:DryFire(setnext)
---     if CLIENT and LocalPlayer() == self:GetOwner() then
---         self:SendWeaponAnim(ACT_VM_DRYFIRE)
---      end
---     self.BaseClass.DryFire(self, setnext)
--- end
-
-function SWEP:DrawWorldModel()
-    local owner = self:GetOwner()
-    
-    if IsValid(owner) then
-        local pos, ang = owner:GetBonePosition(owner:LookupBone("ValveBiped.Bip01_R_Hand"))
-
-        if pos and ang then
-            pos = pos + ang:Forward() * -3.4 + ang:Right() * 0.6 + ang:Up() * 1.8  -- Adjust offsets
-            ang:RotateAroundAxis(ang:Right(), -10)
-            ang:RotateAroundAxis(ang:Up(), -5)
-            ang:RotateAroundAxis(ang:Forward(), 180)
-
-            self:SetRenderOrigin(pos)
-            self:SetRenderAngles(ang)
-            self:DrawModel()
-        end
+function SWEP:Reload()
+    if ( self:Clip1() == self.Primary.ClipSize or self:GetOwner():GetAmmoCount( self.Primary.Ammo ) <= 0 ) then return end
+    if self:Clip1() <= 0 then
+        self:DefaultReload(ACT_VM_RELOAD_EMPTY)        
     else
-        self:SetRenderOrigin(nil)
-        self:SetRenderAngles(nil)
-        self:DrawModel()
+        self:DefaultReload(self.ReloadAnim)
     end
 end

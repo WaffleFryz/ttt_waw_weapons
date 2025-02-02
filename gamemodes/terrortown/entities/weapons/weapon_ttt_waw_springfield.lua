@@ -11,7 +11,7 @@ end
 
 SWEP.HoldType                = "ar2"
 
-SWEP.Base                    = "weapon_tttbase"
+SWEP.Base                    = "weapon_wawbase"
 SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 1.2
@@ -35,21 +35,16 @@ SWEP.UseHands			   = true
 SWEP.ViewModel             = "models/weapons/v_waw_springfield_irons.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_springfield_irons.mdl"
 
+SWEP.WorldHandBoneOffset   = Vector(0.6, -1, 0.43)
+SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
+SWEP.VOffset               = Vector(1.5, 15, -2)
+
 SWEP.IronSightsPos         = Vector(-3.55, 0, 3.85)
 SWEP.IronSightsAng         = Vector(0.59, -0.05, -0.25)
-
 
 SWEP.DeploySpeed           = 0.9
 
 -- 1500-2000 (MP), 45-35 (MP)
-
-function SWEP:GetViewModelPosition( pos, ang )
-    local offset = Vector(1.5, 15, -2)
-    pos = pos + offset.x * ang:Right()
-    pos = pos + offset.y * ang:Forward()
-    pos = pos + offset.z * ang:Up()
-    return self.BaseClass.GetViewModelPosition(self, pos, ang)
-end
 
 function SWEP:SetZoom(state)
     if not (IsValid(self:GetOwner()) and self:GetOwner():IsPlayer()) then return end
@@ -91,27 +86,4 @@ function SWEP:PreDrop()
     self:SetZoom(false)
     self:SetIronsights(false)
     return self.BaseClass.PreDrop(self)
-end
-
-function SWEP:DrawWorldModel()
-    local owner = self:GetOwner()
-    
-    if IsValid(owner) then
-        local pos, ang = owner:GetBonePosition(owner:LookupBone("ValveBiped.Bip01_R_Hand"))
-
-        if pos and ang then
-            pos = pos + ang:Forward() * -1 + ang:Right() * 0.6 + ang:Up() * 0.43  -- Adjust offsets
-            ang:RotateAroundAxis(ang:Right(), -10)
-            ang:RotateAroundAxis(ang:Up(), -5)
-            ang:RotateAroundAxis(ang:Forward(), 180)
-
-            self:SetRenderOrigin(pos)
-            self:SetRenderAngles(ang)
-            self:DrawModel()
-        end
-    else
-        self:SetRenderOrigin(nil)
-        self:SetRenderAngles(nil)
-        self:DrawModel()
-    end
 end

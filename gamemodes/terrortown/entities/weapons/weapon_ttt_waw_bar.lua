@@ -11,7 +11,7 @@ end
 
 SWEP.HoldType                = "ar2"
 
-SWEP.Base                    = "weapon_tttbase"
+SWEP.Base                    = "weapon_wawbase"
 SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 0.16
@@ -35,18 +35,14 @@ SWEP.UseHands			   = true
 SWEP.ViewModel             = "models/weapons/v_waw_bar.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_bar.mdl"
 
+SWEP.WorldHandBoneOffset   = Vector(-1, 0.6, 0.43)
+SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
+SWEP.VOffset               = Vector(3, 13, -2)
+
 SWEP.IronSightsPos         = Vector(-2.845, 0, 0.15)
 SWEP.IronSightsAng         = Vector(2.599, -0.5, -1)
 
 -- 1500-2000 (MP), 45-35 (MP)
-
-function SWEP:GetViewModelPosition( pos, ang )
-    local offset = Vector(3, 13, -2)
-    pos = pos + offset.x * ang:Right()
-    pos = pos + offset.y * ang:Forward()
-    pos = pos + offset.z * ang:Up()
-    return self.BaseClass.GetViewModelPosition(self, pos, ang)
-end
 
 function SWEP:SetZoom(state)
     if not (IsValid(self:GetOwner()) and self:GetOwner():IsPlayer()) then return end
@@ -79,7 +75,11 @@ end
 
 function SWEP:Reload()
     if ( self:Clip1() == self.Primary.ClipSize or self:GetOwner():GetAmmoCount( self.Primary.Ammo ) <= 0 ) then return end
-    self:DefaultReload(self.ReloadAnim)
+    if self:Clip1() <= 0 then
+        self:DefaultReload(ACT_VM_RELOAD_EMPTY)        
+    else
+        self:DefaultReload(self.ReloadAnim)
+    end
     self:SetIronsights( false )
     self:SetZoom(false)
 end
@@ -88,27 +88,4 @@ function SWEP:PreDrop()
     self:SetZoom(false)
     self:SetIronsights(false)
     return self.BaseClass.PreDrop(self)
-end
-
-function SWEP:DrawWorldModel()
-    local owner = self:GetOwner()
-    
-    if IsValid(owner) then
-        local pos, ang = owner:GetBonePosition(owner:LookupBone("ValveBiped.Bip01_R_Hand"))
-
-        if pos and ang then
-            pos = pos + ang:Forward() * -1 + ang:Right() * 0.6 + ang:Up() * 0.43  -- Adjust offsets
-            ang:RotateAroundAxis(ang:Right(), -10)
-            ang:RotateAroundAxis(ang:Up(), -5)
-            ang:RotateAroundAxis(ang:Forward(), 180)
-
-            self:SetRenderOrigin(pos)
-            self:SetRenderAngles(ang)
-            self:DrawModel()
-        end
-    else
-        self:SetRenderOrigin(nil)
-        self:SetRenderAngles(nil)
-        self:DrawModel()
-    end
 end

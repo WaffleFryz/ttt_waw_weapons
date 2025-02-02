@@ -15,7 +15,7 @@ if CLIENT then
    SWEP.IconLetter         = "B"
 end
 
-SWEP.Base                  = "weapon_tttbase"
+SWEP.Base                  = "weapon_wawbase"
 
 SWEP.Kind                  = WEAPON_HEAVY
 SWEP.WeaponID              = AMMO_SHOTGUN
@@ -41,6 +41,10 @@ SWEP.ViewModel             = "models/weapons/v_waw_trenchgun_new.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_trenchgun_new.mdl"
 
 SWEP.DeploySpeed           = 0.85
+
+SWEP.WorldHandBoneOffset   = Vector(0.6, 1.4, 1)
+SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
+SWEP.VOffset               = Vector(2, 7, -3)
 
 SWEP.IronSightsPos         = Vector(-3.7, -2, 4)
 SWEP.IronSightsAng         = Vector(-0.101, -0.7, -0.201)
@@ -180,35 +184,4 @@ function SWEP:SecondaryAttack()
    self:SetIronsights(not self:GetIronsights())
 
    self:SetNextSecondaryFire(CurTime() + 0.3)
-end
-
-function SWEP:GetViewModelPosition( pos, ang )
-    local offset = Vector(3, 3, -2)
-    pos = pos + offset.x * ang:Right()
-    pos = pos + offset.y * ang:Forward()
-    pos = pos + offset.z * ang:Up()
-    return self.BaseClass.GetViewModelPosition(self, pos, ang)
-end
-
-function SWEP:DrawWorldModel()
-    local owner = self:GetOwner()
-    
-    if IsValid(owner) then
-        local pos, ang = owner:GetBonePosition(owner:LookupBone("ValveBiped.Bip01_R_Hand"))
-
-        if pos and ang then
-            pos = pos + ang:Forward() * 1.4 + ang:Right() * 0.6 + ang:Up() * 1  -- Adjust offsets
-            ang:RotateAroundAxis(ang:Right(), -10)
-            ang:RotateAroundAxis(ang:Up(), -5)
-            ang:RotateAroundAxis(ang:Forward(), 180)
-
-            self:SetRenderOrigin(pos)
-            self:SetRenderAngles(ang)
-            self:DrawModel()
-        end
-    else
-        self:SetRenderOrigin(nil)
-        self:SetRenderAngles(nil)
-        self:DrawModel()
-    end
 end
