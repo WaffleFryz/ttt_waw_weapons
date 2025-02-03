@@ -29,8 +29,6 @@ SWEP.Primary.ClipMax       = 60
 SWEP.Primary.Ammo          = "Pistol"
 SWEP.Primary.Sound         = Sound( "waw_tokarev.Single" )
 
-SWEP.HeadshotMultiplier    = 1.4
-
 SWEP.AutoSpawnable         = true
 SWEP.AmmoEnt               = "item_ammo_pistol_ttt"
 
@@ -45,9 +43,10 @@ SWEP.VOffset               = Vector(3, 17, -1)
 SWEP.IronSightsPos         = Vector(-3.2, -4, 3.799)
 SWEP.IronSightsAng         = Vector(0, 0, 0)
 
--- function SWEP:DryFire(setnext)
---     if CLIENT and LocalPlayer() == self:GetOwner() then
---         self:SendWeaponAnim(ACT_VM_DRYFIRE)
---      end
---     self.BaseClass.DryFire(self, setnext)
--- end
+SWEP.DropOffRanges = {
+   [0]   = 40,
+   [240] = 35,
+   [440] = 28,
+   [560] = 24,
+   [800] = 20
+}

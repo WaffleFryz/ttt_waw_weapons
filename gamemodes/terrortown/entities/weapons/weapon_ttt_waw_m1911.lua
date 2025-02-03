@@ -29,8 +29,6 @@ SWEP.Primary.ClipMax       = 64
 SWEP.Primary.Ammo          = "Pistol"
 SWEP.Primary.Sound         = Sound( "waw_1911.Single" )
 
-SWEP.HeadshotMultiplier    = 1.4
-
 SWEP.AutoSpawnable         = true
 SWEP.AmmoEnt               = "item_ammo_pistol_ttt"
 
@@ -53,3 +51,12 @@ function SWEP:Reload()
         self:DefaultReload(self.ReloadAnim)
     end
 end
+
+SWEP.DropOffRanges = {
+    [0]   = 40,
+    [240] = 36,
+    [460] = 34,
+    [560] = 26,
+    [640] = 24,
+    [800] = 20
+}

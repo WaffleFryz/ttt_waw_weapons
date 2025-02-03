@@ -15,7 +15,7 @@ SWEP.Base                    = "weapon_wawbase"
 SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 1.2
-SWEP.Primary.Damage          = 40
+SWEP.Primary.Damage          = 50
 SWEP.Primary.Recoil          = 7
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 5
@@ -25,7 +25,7 @@ SWEP.Primary.Cone            = 0.018
 SWEP.Primary.Ammo            = "357"
 SWEP.Primary.Sound           = Sound("waw_springfield.Single")
 
-SWEP.HeadshotMultiplier    = 3
+SWEP.HeadshotMultiplier    = 2
 
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
@@ -42,9 +42,15 @@ SWEP.VOffset               = Vector(1.5, 15, -2)
 SWEP.IronSightsPos         = Vector(-3.55, 0, 3.85)
 SWEP.IronSightsAng         = Vector(0.59, -0.05, -0.25)
 
-SWEP.DeploySpeed           = 0.9
+SWEP.DropOffRanges = {
+    [0]    = 50,
+    [1240] = 40
+}
 
--- 1500-2000 (MP), 45-35 (MP)
+SWEP.HitgroupMultipliers = {
+    [HitgroupToFlags(HITGROUP_CHEST, HITGROUP_LEFTARM, HITGROUP_RIGHTARM)] = 1.5,
+    [HitgroupToFlags(HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG)] = 0.85
+}
 
 function SWEP:SetZoom(state)
     if not (IsValid(self:GetOwner()) and self:GetOwner():IsPlayer()) then return end

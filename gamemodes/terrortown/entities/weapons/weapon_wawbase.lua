@@ -75,11 +75,17 @@ SWEP.IsSilent = false
 
 SWEP.Base = "weapon_tttbase"
 
-SWEP.Category           = "TTT"
-SWEP.Spawnable          = false
-SWEP.WorldHandBoneOffset = Vector(0,0,0)
-SWEP.WorldHandBoneAngles = Vector(0,0,0)
-SWEP.VOffset = Vector(0,0,0)
+SWEP.Category               = "TTT"
+SWEP.Spawnable              = false
+SWEP.WorldHandBoneOffset    = Vector(0,0,0)
+SWEP.WorldHandBoneAngles    = Vector(0,0,0)
+SWEP.VOffset                = Vector(0,0,0)
+
+SWEP.HeadshotMultiplier    = 1.4
+
+SWEP.HitgroupMultipliers = {
+    [HitgroupToFlags(HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG)] = 0.85
+}
 
 function SWEP:DrawWorldModel()
     local owner = self:GetOwner()
@@ -168,6 +174,4 @@ function SWEP:ShootBullet( dmg, recoil, numbul, cone )
        eyeang.pitch = eyeang.pitch - recoil
        self:GetOwner():SetEyeAngles( eyeang )
     end
- end
- 
-
+end

@@ -15,7 +15,7 @@ SWEP.Base                    = "weapon_wawbase"
 SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 1.4
-SWEP.Primary.Damage          = 50
+SWEP.Primary.Damage          = 70
 SWEP.Primary.Recoil          = 7
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 5
@@ -27,8 +27,7 @@ SWEP.Primary.Sound           = Sound("waw_mosin.Sniper")
 
 SWEP.Secondary.Sound       = Sound("Default.Zoom")
 
-SWEP.HeadshotMultiplier    = 4
-SWEP.DeploySpeed           = 0.75
+SWEP.HeadshotMultiplier    = 2
 
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
@@ -44,6 +43,17 @@ SWEP.VOffset               = Vector(1, 9, -3)
 
 SWEP.IronSightsPos         = Vector( 5, -15, -2 )
 SWEP.IronSightsAng         = Vector( 2.6, 1.37, 3.5 )
+
+SWEP.DropOffRanges = {
+   [0]    = 50,
+   [1240] = 70,
+   [2480] = 9999
+}
+
+SWEP.HitgroupMultipliers = {
+   [HitgroupToFlags(HITGROUP_CHEST, HITGROUP_LEFTARM, HITGROUP_RIGHTARM)] = 1.5,
+   [HitgroupToFlags(HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG)] = 0.85
+}
 
 function SWEP:SetupDataTables()
     self:NetworkVar("Bool", 0, "Reloading")

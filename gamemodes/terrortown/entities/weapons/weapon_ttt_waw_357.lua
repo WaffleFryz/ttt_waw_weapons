@@ -19,7 +19,7 @@ SWEP.WeaponID              = AMMO_DEAGLE
 
 SWEP.Primary.Ammo          = "AlyxGun" -- hijack an ammo type we don't use otherwise
 SWEP.Primary.Recoil        = 6.3
-SWEP.Primary.Damage        = 40
+SWEP.Primary.Damage        = 50
 SWEP.Primary.Delay         = 0.5
 SWEP.Primary.Cone          = 0.02
 SWEP.Primary.ClipSize      = 6
@@ -27,8 +27,6 @@ SWEP.Primary.ClipMax       = 36
 SWEP.Primary.DefaultClip   = 6
 SWEP.Primary.Automatic     = true
 SWEP.Primary.Sound         = Sound( "waw_magnum.Single" )
-
-SWEP.HeadshotMultiplier    = 2
 
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
@@ -44,3 +42,10 @@ SWEP.VOffset               = Vector(3, 5, -1)
 
 SWEP.IronSightsPos         = Vector(-3.391, -1.701, 3.15)
 SWEP.IronSightsAng         = Vector(0, 0, 0)
+
+SWEP.DropOffRanges = {
+   [0]   = 50,
+   [440] = 40,
+   [640] = 35,
+   [800] = 30
+}

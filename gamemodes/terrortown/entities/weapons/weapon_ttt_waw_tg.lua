@@ -22,8 +22,8 @@ SWEP.WeaponID              = AMMO_SHOTGUN
 
 SWEP.Primary.Ammo          = "Buckshot"
 SWEP.Primary.Damage        = 11
-SWEP.Primary.Cone          = 0.077
-SWEP.Primary.Delay         = 0.98
+SWEP.Primary.Cone          = 0.112
+SWEP.Primary.Delay         = 0.95
 SWEP.Primary.ClipSize      = 6
 SWEP.Primary.ClipMax       = 24
 SWEP.Primary.DefaultClip   = 6
@@ -48,6 +48,15 @@ SWEP.VOffset               = Vector(2, 7, -3)
 
 SWEP.IronSightsPos         = Vector(-3.7, -2, 4)
 SWEP.IronSightsAng         = Vector(-0.101, -0.7, -0.201)
+
+SWEP.HeadshotMultiplier    = 1
+
+SWEP.DropOffRanges = {
+   [0]    = 30,
+   [240]  = 22,
+   [480]  = 15,
+   [800]  = 10
+}
 
 function SWEP:SetupDataTables()
    self:NetworkVar("Bool", 0, "Reloading")
@@ -165,18 +174,18 @@ end
 -- is, the more damage it does. This reinforces the shotgun's role as short
 -- range weapon by reducing effectiveness at mid-range, where one could score
 -- lucky headshots relatively easily due to the spread.
-function SWEP:GetHeadshotMultiplier(victim, dmginfo)
-   local att = dmginfo:GetAttacker()
-   if not IsValid(att) then return 3 end
+-- function SWEP:GetHeadshotMultiplier(victim, dmginfo)
+--    local att = dmginfo:GetAttacker()
+--    if not IsValid(att) then return 3 end
 
-   local dist = victim:GetPos():Distance(att:GetPos())
-   local d = math.max(0, dist - 140)
+--    local dist = victim:GetPos():Distance(att:GetPos())
+--    local d = math.max(0, dist - 140)
 
-   -- Decay from 2 to 1 slowly as distance increases. Note that this used to be
-   -- 3+, but at that time shotgun bullets were treated like in HL2 where half
-   -- of them were hull traces that could not headshot.
-   return 1 + math.max(0, (1.0 - 0.002 * (d ^ 1.25)))
-end
+--    -- Decay from 2 to 1 slowly as distance increases. Note that this used to be
+--    -- 3+, but at that time shotgun bullets were treated like in HL2 where half
+--    -- of them were hull traces that could not headshot.
+--    return 1 + math.max(0, (1.0 - 0.002 * (d ^ 1.25)))
+-- end
 
 function SWEP:SecondaryAttack()
    if self.NoSights or (not self.IronSightsPos) or self:GetReloading() then return end

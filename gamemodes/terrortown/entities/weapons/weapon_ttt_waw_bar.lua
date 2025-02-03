@@ -25,8 +25,6 @@ SWEP.Primary.Cone            = 0.018
 SWEP.Primary.Ammo            = "Pistol"
 SWEP.Primary.Sound           = Sound("waw_bar.Single")
 
-SWEP.HeadshotMultiplier    = 1.4
-
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
 SWEP.AmmoEnt               = "item_ammo_pistol_ttt"
@@ -42,7 +40,11 @@ SWEP.VOffset               = Vector(3, 13, -2)
 SWEP.IronSightsPos         = Vector(-2.845, 0, 0.15)
 SWEP.IronSightsAng         = Vector(2.599, -0.5, -1)
 
--- 1500-2000 (MP), 45-35 (MP)
+SWEP.DropOffRanges = {
+    [0] = 45,
+    [840] = 40,
+    [1200] = 35
+}
 
 function SWEP:SetZoom(state)
     if not (IsValid(self:GetOwner()) and self:GetOwner():IsPlayer()) then return end
@@ -51,7 +53,7 @@ function SWEP:SetZoom(state)
     else
        self:GetOwner():SetFOV(0, 0.2)
     end
- end
+end
 
 -- Add some zoom to ironsights for this gun
 function SWEP:SecondaryAttack()

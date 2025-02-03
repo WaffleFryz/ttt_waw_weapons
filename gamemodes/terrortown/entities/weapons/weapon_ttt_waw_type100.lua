@@ -40,15 +40,10 @@ SWEP.VOffset               = Vector(-2, 12, -1)
 SWEP.IronSightsPos         = Vector(-2.25, 0, 2.2)
 SWEP.IronSightsAng         = Vector(2.599, -0.2, 3)
 
-SWEP.HeadshotMultiplier = 1.4
-
-function SWEP:GetHeadshotMultiplier(victim, dmginfo)
-    local att = dmginfo:GetAttacker()
-    if not IsValid(att) then return 2 end
- 
-    local dist = victim:GetPos():Distance(att:GetPos())
-    local d = math.max(0, dist - 150)
- 
-    -- decay from 3.2 to 1.7
-    return 1.7 + math.max(0, (1.5 - 0.002 * (d ^ 1.25)))
-end
+SWEP.DropOffRanges = {
+    [0] = 40,
+    [480] = 35,
+    [560] = 30,
+    [640] = 25,
+    [800] = 20
+}

@@ -25,8 +25,6 @@ SWEP.Primary.Cone            = 0.005
 SWEP.Primary.Ammo            = "357"
 SWEP.Primary.Sound           = Sound("waw_garand.Single")
 
-SWEP.HeadshotMultiplier    = 1.4
-
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
 SWEP.AmmoEnt               = "item_ammo_357_ttt"
@@ -41,6 +39,12 @@ SWEP.VOffset               = Vector(3, 13, -2)
 
 SWEP.IronSightsPos         = Vector(-2.9, 0, 0)
 SWEP.IronSightsAng         = Vector(2.65, -0.5, -1)
+
+SWEP.DropOffRanges = {
+    [0] = 45,
+    [840] = 40,
+    [1200] = 35
+}
 
 -- WAW Notes:
 -- 444 rpm, 3.4 tac, 45-35 dmg, 1500m to 2000m
