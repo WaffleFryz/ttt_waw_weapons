@@ -43,6 +43,8 @@ SWEP.VOffset               = Vector(1, 9, -3)
 
 SWEP.IronSightsPos         = Vector( 5, -15, -2 )
 SWEP.IronSightsAng         = Vector( 2.6, 1.37, 3.5 )
+SWEP.ZoomFOV               = 20
+SWEP.ZoomTime              = 0.4
 
 SWEP.DropOffRanges = {
    [0]    = 50,
@@ -60,17 +62,7 @@ function SWEP:SetupDataTables()
     self:NetworkVar("Float", 0, "ReloadTimer")
  
     return self.BaseClass.SetupDataTables(self)
- end
-
- function SWEP:SetZoom(state)
-    if IsValid(self:GetOwner()) and self:GetOwner():IsPlayer() then
-       if state then
-          self:GetOwner():SetFOV(20, 0.3)
-       else
-          self:GetOwner():SetFOV(0, 0.2)
-       end
-    end
- end
+end
 
  -- Add some zoom to ironsights for this gun
 function SWEP:SecondaryAttack()
@@ -87,19 +79,15 @@ function SWEP:SecondaryAttack()
     end
  
     self:SetNextSecondaryFire( CurTime() + 0.3)
- end
+end
  
- function SWEP:Reload()
- 
+function SWEP:Reload()
     if self:GetReloading() then return end
- 
     if self:Clip1() < self.Primary.ClipSize and self:GetOwner():GetAmmoCount( self.Primary.Ammo ) > 0 then
- 
        if self:StartReload() then
           return
        end
     end
- 
 end
 
 function SWEP:StartReload()
@@ -201,11 +189,11 @@ function SWEP:Deploy()
     return self.BaseClass.Deploy(self)
  end
 
- function SWEP:Holster()
+function SWEP:Holster()
     self:SetIronsights(false)
     self:SetZoom(false)
     return true
- end
+end
 
 if CLIENT then
    local scope = surface.GetTextureID("sprites/scope")

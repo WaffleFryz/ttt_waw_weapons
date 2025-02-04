@@ -41,6 +41,7 @@ SWEP.VOffset               = Vector(1.5, 15, -2)
 
 SWEP.IronSightsPos         = Vector(-3.55, 0, 3.85)
 SWEP.IronSightsAng         = Vector(0.59, -0.05, -0.25)
+SWEP.ZoomFOV               = 35
 
 SWEP.DropOffRanges = {
     [0]    = 50,
@@ -51,15 +52,6 @@ SWEP.HitgroupMultipliers = {
     [HitgroupToFlags(HITGROUP_CHEST, HITGROUP_LEFTARM, HITGROUP_RIGHTARM)] = 1.5,
     [HitgroupToFlags(HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG)] = 0.85
 }
-
-function SWEP:SetZoom(state)
-    if not (IsValid(self:GetOwner()) and self:GetOwner():IsPlayer()) then return end
-    if state then
-       self:GetOwner():SetFOV(35, 0.5)
-    else
-       self:GetOwner():SetFOV(0, 0.2)
-    end
- end
 
 -- Add some zoom to ironsights for this gun
 function SWEP:SecondaryAttack()
@@ -80,13 +72,6 @@ function SWEP:Holster()
     self:SetZoom(false)
     return true
 end 
-
-function SWEP:Reload()
-    if ( self:Clip1() == self.Primary.ClipSize or self:GetOwner():GetAmmoCount( self.Primary.Ammo ) <= 0 ) then return end
-    self:DefaultReload(self.ReloadAnim)
-    self:SetIronsights( false )
-    self:SetZoom(false)
-end
 
 function SWEP:PreDrop()
     self:SetZoom(false)

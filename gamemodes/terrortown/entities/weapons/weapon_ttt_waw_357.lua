@@ -40,6 +40,8 @@ SWEP.WorldHandBoneOffset   = Vector(0.6, -1, 0.43)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(3, 5, -1)
 
+-- SWEP.IronSightsPos         = Vector(-6.45, -1.701, 2.8)
+-- bai lu borked
 SWEP.IronSightsPos         = Vector(-3.391, -1.701, 3.15)
 SWEP.IronSightsAng         = Vector(0, 0, 0)
 

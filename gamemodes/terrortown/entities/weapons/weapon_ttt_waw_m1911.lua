@@ -43,15 +43,6 @@ SWEP.VOffset               = Vector(3, 17, -1)
 SWEP.IronSightsPos         = Vector(-3.2, -4, 3.799)
 SWEP.IronSightsAng         = Vector(0, 0, 0)
 
-function SWEP:Reload()
-    if ( self:Clip1() == self.Primary.ClipSize or self:GetOwner():GetAmmoCount( self.Primary.Ammo ) <= 0 ) then return end
-    if self:Clip1() <= 0 then
-        self:DefaultReload(ACT_VM_RELOAD_EMPTY)        
-    else
-        self:DefaultReload(self.ReloadAnim)
-    end
-end
-
 SWEP.DropOffRanges = {
     [0]   = 40,
     [240] = 36,

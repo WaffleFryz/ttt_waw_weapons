@@ -37,8 +37,9 @@ SWEP.WorldHandBoneOffset   = Vector(0.6, 1, 0.5)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(3, 13, -2)
 
-SWEP.IronSightsPos         = Vector(-2.9, 0, 0)
-SWEP.IronSightsAng         = Vector(2.65, -0.5, -1)
+SWEP.IronSightsPos         = Vector(-2.68, -4.5, 2.65)
+SWEP.IronSightsAng         = Vector(-1.0, 0, 0)
+SWEP.ZoomFOV               = 45
 
 SWEP.DropOffRanges = {
     [0] = 45,
@@ -48,15 +49,6 @@ SWEP.DropOffRanges = {
 
 -- WAW Notes:
 -- 444 rpm, 3.4 tac, 45-35 dmg, 1500m to 2000m
-
-function SWEP:SetZoom(state)
-    if not (IsValid(self:GetOwner()) and self:GetOwner():IsPlayer()) then return end
-    if state then
-       self:GetOwner():SetFOV(35, 0.5)
-    else
-       self:GetOwner():SetFOV(0, 0.2)
-    end
-end
 
 -- Ping on last bullet
 -- Shooting functions largely copied from weapon_cs_base
@@ -113,18 +105,6 @@ function SWEP:Holster()
     self:SetZoom(false)
     return true
 end 
-
--- Do empty reload on clip == 0
-function SWEP:Reload()
-    if ( self:Clip1() == self.Primary.ClipSize or self:GetOwner():GetAmmoCount( self.Primary.Ammo ) <= 0 ) then return end
-    if self:Clip1() == 0 then
-        self:DefaultReload(ACT_VM_RELOAD_EMPTY)
-    else
-        self:DefaultReload(self.ReloadAnim)
-    end
-    self:SetIronsights(false)
-    self:SetZoom(false)
-end
 
 function SWEP:PreDrop()
     self:SetZoom(false)
