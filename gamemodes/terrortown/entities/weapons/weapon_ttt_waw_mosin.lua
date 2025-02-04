@@ -196,7 +196,7 @@ function SWEP:Holster()
 end
 
 if CLIENT then
-   local scope_mat = Material("scope/mosinscope3.png","unlitgeneric")
+   local scope_mat = Material("scope/mosinscope2.png","unlitgeneric")
    function SWEP:DrawHUD()
       if self:GetIronsights() then
          surface.SetDrawColor( 0, 0, 0, 255 )
