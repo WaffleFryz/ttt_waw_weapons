@@ -21,7 +21,7 @@ SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 5
 SWEP.Primary.ClipMax         = 15
 SWEP.Primary.DefaultClip     = 5
-SWEP.Primary.Cone            = 0.018
+SWEP.Primary.Cone            = 0.005
 SWEP.Primary.Ammo            = "357"
 SWEP.Primary.Sound           = Sound("waw_mosin.Sniper")
 
@@ -196,7 +196,7 @@ function SWEP:Holster()
 end
 
 if CLIENT then
-   local scope = surface.GetTextureID("sprites/scope")
+   local scope_mat = Material("scope/mosinscope3.png","unlitgeneric")
    function SWEP:DrawHUD()
       if self:GetIronsights() then
          surface.SetDrawColor( 0, 0, 0, 255 )
@@ -208,22 +208,6 @@ if CLIENT then
          local y = scrH / 2.0
          local scope_size = scrH
 
-         -- crosshair
-         local gap = 80
-         local length = scope_size
-         surface.DrawLine( x - length, y, x - gap, y )
-         surface.DrawLine( x + length, y, x + gap, y )
-         surface.DrawLine( x, y - length, x, y - gap )
-         surface.DrawLine( x, y + length, x, y + gap )
-
-         gap = 0
-         length = 50
-         surface.DrawLine( x - length, y, x - gap, y )
-         surface.DrawLine( x + length, y, x + gap, y )
-         surface.DrawLine( x, y - length, x, y - gap )
-         surface.DrawLine( x, y + length, x, y + gap )
-
-
          -- cover edges
          local sh = scope_size / 2
          local w = (x - sh) + 2
@@ -234,11 +218,8 @@ if CLIENT then
          surface.DrawLine( 0, 0, scrW, 0 )
          surface.DrawLine( 0, scrH - 1, scrW, scrH - 1 )
 
-         surface.SetDrawColor(255, 0, 0, 255)
-         surface.DrawLine(x, y, x + 1, y + 1)
-
          -- scope
-         surface.SetTexture(scope)
+         surface.SetMaterial(scope_mat)
          surface.SetDrawColor(255, 255, 255, 255)
 
          surface.DrawTexturedRectRotated(x, y, scope_size, scope_size, 0)

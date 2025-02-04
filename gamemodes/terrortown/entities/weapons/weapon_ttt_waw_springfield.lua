@@ -21,7 +21,7 @@ SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 5
 SWEP.Primary.ClipMax         = 15
 SWEP.Primary.DefaultClip     = 5
-SWEP.Primary.Cone            = 0.018
+SWEP.Primary.Cone            = 0.05
 SWEP.Primary.Ammo            = "357"
 SWEP.Primary.Sound           = Sound("waw_springfield.Single")
 
