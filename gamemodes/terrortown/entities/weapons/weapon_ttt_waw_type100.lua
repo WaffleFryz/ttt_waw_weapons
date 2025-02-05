@@ -21,7 +21,7 @@ SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 30
 SWEP.Primary.ClipMax         = 60
 SWEP.Primary.DefaultClip     = 30
-SWEP.Primary.Cone            = 0.03
+SWEP.Primary.Cone            = 0.06
 SWEP.Primary.Ammo            = "SMG1"
 SWEP.Primary.Sound           = Sound("waw_type100_new.Single")
 
@@ -41,9 +41,9 @@ SWEP.IronSightsPos         = Vector(-2.25, 0, 2.2)
 SWEP.IronSightsAng         = Vector(2.599, -0.2, 3)
 
 SWEP.DropOffRanges = {
-    [0] = 40,
-    [480] = 35,
-    [560] = 30,
-    [640] = 25,
-    [800] = 20
+    [0]   = 40,
+    [80]  = 35,
+    [160] = 30,
+    [240] = 25,
+    [560] = 20
 }

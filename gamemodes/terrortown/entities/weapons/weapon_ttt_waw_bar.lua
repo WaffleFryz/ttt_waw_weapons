@@ -44,8 +44,8 @@ SWEP.ZoomTime              = 0.35
 
 SWEP.DropOffRanges = {
     [0] = 45,
-    [840] = 40,
-    [1200] = 35
+    [480] = 40,
+    [960] = 35
 }
 
 -- Add some zoom to ironsights for this gun

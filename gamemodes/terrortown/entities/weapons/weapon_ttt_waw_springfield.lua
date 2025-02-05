@@ -21,7 +21,7 @@ SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 5
 SWEP.Primary.ClipMax         = 15
 SWEP.Primary.DefaultClip     = 5
-SWEP.Primary.Cone            = 0.05
+SWEP.Primary.Cone            = 0.005
 SWEP.Primary.Ammo            = "357"
 SWEP.Primary.Sound           = Sound("waw_springfield.Single")
 
@@ -41,7 +41,7 @@ SWEP.VOffset               = Vector(1.5, 15, -2)
 
 SWEP.IronSightsPos         = Vector(-3.55, 0, 3.85)
 SWEP.IronSightsAng         = Vector(0.59, -0.05, -0.25)
-SWEP.ZoomFOV               = 35
+SWEP.ZoomFOV               = 40
 
 SWEP.DropOffRanges = {
     [0]    = 50,

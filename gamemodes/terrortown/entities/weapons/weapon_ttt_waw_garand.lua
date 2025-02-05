@@ -21,7 +21,7 @@ SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 8
 SWEP.Primary.ClipMax         = 24
 SWEP.Primary.DefaultClip     = 8
-SWEP.Primary.Cone            = 0.005
+SWEP.Primary.Cone            = 0.018
 SWEP.Primary.Ammo            = "357"
 SWEP.Primary.Sound           = Sound("waw_garand.Single")
 
@@ -43,8 +43,8 @@ SWEP.ZoomFOV               = 45
 
 SWEP.DropOffRanges = {
     [0] = 45,
-    [840] = 40,
-    [1200] = 35
+    [480] = 40,
+    [960] = 35
 }
 
 -- WAW Notes:
