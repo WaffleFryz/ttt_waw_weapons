@@ -21,7 +21,7 @@ SWEP.WeaponID              = AMMO_PISTOL
 SWEP.Primary.Recoil        = 1.5
 SWEP.Primary.Damage        = 24
 SWEP.Primary.Delay         = 0.23
-SWEP.Primary.Cone          = 0.028
+SWEP.Primary.Cone          = 0.03
 SWEP.Primary.ClipSize      = 8
 SWEP.Primary.Automatic     = true
 SWEP.Primary.DefaultClip   = 8
@@ -40,8 +40,8 @@ SWEP.WorldHandBoneOffset   = Vector(0.7, 1.3, 1)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(3, 17, -1)
 
-SWEP.IronSightsPos         = Vector(-3.2, -4, 3.799)
-SWEP.IronSightsAng         = Vector(0, 0, 0)
+SWEP.IronSightsPos         = Vector(-3.2, -4, 2.5)
+SWEP.IronSightsAng         = Vector(0, -0.0085, 0)
 
 SWEP.DropOffRanges = {
    [0]   = 40,

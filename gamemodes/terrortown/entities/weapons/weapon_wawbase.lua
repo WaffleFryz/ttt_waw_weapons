@@ -84,6 +84,7 @@ SWEP.ZoomFOV                = 0
 SWEP.ZoomTime               = 0.25
 
 SWEP.HeadshotMultiplier     = 1.4
+SWEP.DamageScale            = GetConVar("ttt_waw_damage_scale")
 
 SWEP.HitgroupMultipliers = {
     [HitgroupToFlags(HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG)] = 0.85
@@ -146,7 +147,7 @@ function SWEP:ShootBullet( dmg, recoil, numbul, cone )
                     highest = d
                 end
             end
-            dmginfo:SetDamage(self.DropOffRanges[highest])
+            dmginfo:SetDamage(self.DropOffRanges[highest] * self.DamageScale:GetFloat())
         end
     end
  

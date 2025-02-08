@@ -37,8 +37,8 @@ SWEP.WorldHandBoneOffset   = Vector(0.6, -1, 0.43)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(-2, 12, -1)
 
-SWEP.IronSightsPos         = Vector(-2.25, 0, 2.2)
-SWEP.IronSightsAng         = Vector(2.599, -0.2, 3)
+SWEP.IronSightsPos         = Vector(-2.07, -5, 3.55)
+SWEP.IronSightsAng         = Vector(-1.3, 0.725, 3)
 
 SWEP.DropOffRanges = {
     [0]   = 40,

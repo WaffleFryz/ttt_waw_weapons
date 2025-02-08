@@ -22,7 +22,7 @@ SWEP.WeaponID              = AMMO_SHOTGUN
 
 SWEP.Primary.Ammo          = "Buckshot"
 SWEP.Primary.Damage        = 11
-SWEP.Primary.Cone          = 0.112
+SWEP.Primary.Cone          = 0.09
 SWEP.Primary.Delay         = 0.92
 SWEP.Primary.ClipSize      = 6
 SWEP.Primary.ClipMax       = 24
@@ -46,16 +46,17 @@ SWEP.WorldHandBoneOffset   = Vector(0.6, 1.4, 1)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(2, 7, -3)
 
-SWEP.IronSightsPos         = Vector(-3.7, -2, 4)
-SWEP.IronSightsAng         = Vector(-0.101, -0.7, -0.201)
+SWEP.IronSightsPos         = Vector(-2.5, 0, 3.4)
+SWEP.IronSightsAng         = Vector(0, 0, 0)
 
-SWEP.HeadshotMultiplier    = 1
+SWEP.HeadshotMultiplier    = 1.05
 
 SWEP.DropOffRanges = {
    [0]    = 30,
-   [240]  = 22,
-   [480]  = 15,
-   [800]  = 10
+   [160]  = 25,
+   [240]  = 20,
+   [320]  = 15,
+   [480]  = 10
 }
 
 function SWEP:SetupDataTables()
