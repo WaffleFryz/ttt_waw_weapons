@@ -42,7 +42,7 @@ SWEP.WorldModel            = "models/weapons/w_waw_trenchgun_new.mdl"
 
 SWEP.DeploySpeed           = 0.85
 
-SWEP.WorldHandBoneOffset   = Vector(0.6, 1.4, 1)
+SWEP.WorldHandBoneOffset   = Vector(1.4, 0.6, 1)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(2, 7, -3)
 

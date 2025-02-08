@@ -36,7 +36,7 @@ SWEP.UseHands              = true
 SWEP.ViewModel             = "models/weapons/v_waw_magnum.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_magnum.mdl"
 
-SWEP.WorldHandBoneOffset   = Vector(0.6, -1, 0.43)
+SWEP.WorldHandBoneOffset   = Vector(-1, 0.6, 0.43)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(3, 5, -1)
 

@@ -35,7 +35,7 @@ SWEP.UseHands			   = true
 SWEP.ViewModel             = "models/weapons/v_waw_springfield_irons.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_springfield_irons.mdl"
 
-SWEP.WorldHandBoneOffset   = Vector(0.6, -1, 0.43)
+SWEP.WorldHandBoneOffset   = Vector(4, 0.6, 0.43)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(1.5, 15, -2)
 

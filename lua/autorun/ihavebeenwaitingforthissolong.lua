@@ -974,6 +974,13 @@ sound.Add({
 })
 
 sound.Add({
+	name =			"waw_db_new.Double",
+	channel =		CHAN_STATIC +10,
+	volume =		1.0,
+	sound =				"weapons/waw_db_new/fire2.wav"
+})
+
+sound.Add({
 	name = 			"waw_db_new.switch",			
 	channel = 		CHAN_ITEM,
 	volume = 		1.0,
