@@ -11,52 +11,58 @@ end
 
 SWEP.HoldType                = "ar2"
 
-SWEP.Base                    = "weapon_tttbase"
+SWEP.Base                    = "weapon_wawbase"
 SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 1.4
-SWEP.Primary.Damage          = 50
+SWEP.Primary.Damage          = 70
 SWEP.Primary.Recoil          = 7
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 5
 SWEP.Primary.ClipMax         = 15
 SWEP.Primary.DefaultClip     = 5
-SWEP.Primary.Cone            = 0.018
+SWEP.Primary.Cone            = 0.005
 SWEP.Primary.Ammo            = "357"
 SWEP.Primary.Sound           = Sound("waw_mosin.Sniper")
 
 SWEP.Secondary.Sound       = Sound("Default.Zoom")
 
-SWEP.HeadshotMultiplier    = 4
-SWEP.DeploySpeed           = 0.75
+SWEP.HeadshotMultiplier    = 2
 
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
 SWEP.AmmoEnt               = "item_ammo_357_ttt"
 
-SWEP.UseHands			   = true
+SWEP.UseHands			      = true
 SWEP.ViewModel             = "models/weapons/v_waw_mosin_scoped.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_mosin_irons.mdl"
 
+SWEP.WorldHandBoneOffset   = Vector(-1, 0.6, 0.43)
+SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
+SWEP.VOffset               = Vector(1, 9, -3)
+
 SWEP.IronSightsPos         = Vector( 5, -15, -2 )
 SWEP.IronSightsAng         = Vector( 2.6, 1.37, 3.5 )
+SWEP.ZoomFOV               = 20
+SWEP.ZoomTime              = 0.4
+
+SWEP.DropOffRanges = {
+   [0]    = 50,
+   [1240] = 70,
+   [2480] = 9999
+}
+
+SWEP.HitgroupMultipliers = {
+   [HitgroupToFlags(HITGROUP_CHEST, HITGROUP_LEFTARM, HITGROUP_RIGHTARM)] = 1.5,
+   [HitgroupToFlags(HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG)] = 0.85
+}
 
 function SWEP:SetupDataTables()
     self:NetworkVar("Bool", 0, "Reloading")
     self:NetworkVar("Float", 0, "ReloadTimer")
  
     return self.BaseClass.SetupDataTables(self)
- end
-
- function SWEP:SetZoom(state)
-    if IsValid(self:GetOwner()) and self:GetOwner():IsPlayer() then
-       if state then
-          self:GetOwner():SetFOV(20, 0.3)
-       else
-          self:GetOwner():SetFOV(0, 0.2)
-       end
-    end
- end
+end
 
  -- Add some zoom to ironsights for this gun
 function SWEP:SecondaryAttack()
@@ -73,27 +79,15 @@ function SWEP:SecondaryAttack()
     end
  
     self:SetNextSecondaryFire( CurTime() + 0.3)
- end
+end
  
- function SWEP:Reload()
- 
+function SWEP:Reload()
     if self:GetReloading() then return end
- 
     if self:Clip1() < self.Primary.ClipSize and self:GetOwner():GetAmmoCount( self.Primary.Ammo ) > 0 then
- 
        if self:StartReload() then
           return
        end
     end
- 
- end
-
-function SWEP:GetViewModelPosition( pos, ang )
-    local offset = Vector(1, 9, -3)
-    pos = pos + offset.x * ang:Right()
-    pos = pos + offset.y * ang:Forward()
-    pos = pos + offset.z * ang:Up()
-    return self.BaseClass.GetViewModelPosition(self, pos, ang)
 end
 
 function SWEP:StartReload()
@@ -195,88 +189,46 @@ function SWEP:Deploy()
     return self.BaseClass.Deploy(self)
  end
 
- function SWEP:Holster()
+function SWEP:Holster()
     self:SetIronsights(false)
     self:SetZoom(false)
     return true
- end
+end
 
- if CLIENT then
-    local scope = surface.GetTextureID("sprites/scope")
-    function SWEP:DrawHUD()
-       if self:GetIronsights() then
-          surface.SetDrawColor( 0, 0, 0, 255 )
-          
-          local scrW = ScrW()
-          local scrH = ScrH()
+if CLIENT then
+   local scope_mat = Material("scope/mosinscope2.png","unlitgeneric")
+   function SWEP:DrawHUD()
+      if self:GetIronsights() then
+         surface.SetDrawColor( 0, 0, 0, 255 )
+         
+         local scrW = ScrW()
+         local scrH = ScrH()
+
+         local x = scrW / 2.0
+         local y = scrH / 2.0
+         local scope_size = scrH
+
+         -- cover edges
+         local sh = scope_size / 2
+         local w = (x - sh) + 2
+         surface.DrawRect(0, 0, w, scope_size)
+         surface.DrawRect(x + sh - 2, 0, w, scope_size)
+         
+         -- cover gaps on top and bottom of screen
+         surface.DrawLine( 0, 0, scrW, 0 )
+         surface.DrawLine( 0, scrH - 1, scrW, scrH - 1 )
+
+         -- scope
+         surface.SetMaterial(scope_mat)
+         surface.SetDrawColor(255, 255, 255, 255)
+
+         surface.DrawTexturedRectRotated(x, y, scope_size, scope_size, 0)
+      else
+         return self.BaseClass.DrawHUD(self)
+      end
+   end
  
-          local x = scrW / 2.0
-          local y = scrH / 2.0
-          local scope_size = scrH
- 
-          -- crosshair
-          local gap = 80
-          local length = scope_size
-          surface.DrawLine( x - length, y, x - gap, y )
-          surface.DrawLine( x + length, y, x + gap, y )
-          surface.DrawLine( x, y - length, x, y - gap )
-          surface.DrawLine( x, y + length, x, y + gap )
- 
-          gap = 0
-          length = 50
-          surface.DrawLine( x - length, y, x - gap, y )
-          surface.DrawLine( x + length, y, x + gap, y )
-          surface.DrawLine( x, y - length, x, y - gap )
-          surface.DrawLine( x, y + length, x, y + gap )
- 
- 
-          -- cover edges
-          local sh = scope_size / 2
-          local w = (x - sh) + 2
-          surface.DrawRect(0, 0, w, scope_size)
-          surface.DrawRect(x + sh - 2, 0, w, scope_size)
-          
-          -- cover gaps on top and bottom of screen
-          surface.DrawLine( 0, 0, scrW, 0 )
-          surface.DrawLine( 0, scrH - 1, scrW, scrH - 1 )
- 
-          surface.SetDrawColor(255, 0, 0, 255)
-          surface.DrawLine(x, y, x + 1, y + 1)
- 
-          -- scope
-          surface.SetTexture(scope)
-          surface.SetDrawColor(255, 255, 255, 255)
- 
-          surface.DrawTexturedRectRotated(x, y, scope_size, scope_size, 0)
-       else
-          return self.BaseClass.DrawHUD(self)
-       end
-    end
- 
-    function SWEP:AdjustMouseSensitivity()
+	function SWEP:AdjustMouseSensitivity()
        return (self:GetIronsights() and 0.2) or nil
     end
- end
- 
- function SWEP:DrawWorldModel()
-   local owner = self:GetOwner()
-   
-   if IsValid(owner) then
-       local pos, ang = owner:GetBonePosition(owner:LookupBone("ValveBiped.Bip01_R_Hand"))
-
-       if pos and ang then
-           pos = pos + ang:Forward() * -1 + ang:Right() * 0.6 + ang:Up() * 0.43  -- Adjust offsets
-           ang:RotateAroundAxis(ang:Right(), -10)
-           ang:RotateAroundAxis(ang:Up(), -5)
-           ang:RotateAroundAxis(ang:Forward(), 180)
-
-           self:SetRenderOrigin(pos)
-           self:SetRenderAngles(ang)
-           self:DrawModel()
-       end
-   else
-      self:SetRenderOrigin(nil)
-      self:SetRenderAngles(nil)
-      self:DrawModel()
-   end
 end
