@@ -1,6 +1,6 @@
 AddCSLuaFile()
 
-SWEP.HoldType              = "crossbow"
+SWEP.HoldType              = "shotgun"
 
 if CLIENT then
    SWEP.PrintName          = "Double-Barrel"
@@ -45,7 +45,7 @@ SWEP.WorldModel            = "models/weapons/w_waw_doublebar_new.mdl"
 
 
 SWEP.WorldHandBoneOffset   = Vector(1.4, 0.6, 1)
-SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
+SWEP.WorldHandBoneAngles   = Vector(-8, 1, 180)
 SWEP.VOffset               = Vector(0, 7, -1)
 
 SWEP.IronSightsPos         = Vector(-2.5, 0, 3.4)
