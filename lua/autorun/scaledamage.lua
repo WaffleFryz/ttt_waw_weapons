@@ -27,7 +27,7 @@ local tttReducedDamage = HitgroupToFlags(HITGROUP_LEFTARM, HITGROUP_RIGHTARM, HI
 -- end)
 
 hook.Add("ScalePlayerDamage", "ScaleDamageWawGuns", function(ply, hitgroup, dmginfo)
-    local att = dmginfo:GetInflictor()
+    local att = dmginfo:GetAttacker()
     if not IsValid(ply) or not IsValid(att) then return end
     local infl = att:GetActiveWeapon()
     if not IsValid(infl) then return end

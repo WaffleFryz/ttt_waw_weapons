@@ -42,21 +42,20 @@ SWEP.WorldModel            = "models/weapons/w_waw_trenchgun_new.mdl"
 
 SWEP.DeploySpeed           = 0.85
 
-SWEP.WorldHandBoneOffset   = Vector(0.6, 1.4, 1)
+SWEP.WorldHandBoneOffset   = Vector(1.4, 0.6, 1)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(2, 7, -3)
 
 SWEP.IronSightsPos         = Vector(-2.5, 0, 3.4)
 SWEP.IronSightsAng         = Vector(0, 0, 0)
 
-SWEP.HeadshotMultiplier    = 1.05
-
 SWEP.DropOffRanges = {
-   [0]    = 30,
-   [160]  = 25,
-   [240]  = 20,
-   [320]  = 15,
-   [480]  = 10
+   [0]    = 25,
+   [80]   = 20,
+   [120]  = 18,
+   [160]  = 15,
+   [200]  = 13,
+   [240]  = 11
 }
 
 function SWEP:SetupDataTables()
@@ -175,18 +174,18 @@ end
 -- is, the more damage it does. This reinforces the shotgun's role as short
 -- range weapon by reducing effectiveness at mid-range, where one could score
 -- lucky headshots relatively easily due to the spread.
--- function SWEP:GetHeadshotMultiplier(victim, dmginfo)
---    local att = dmginfo:GetAttacker()
---    if not IsValid(att) then return 3 end
+function SWEP:GetHeadshotMultiplier(victim, dmginfo)
+   local att = dmginfo:GetAttacker()
+   if not IsValid(att) then return 3 end
 
---    local dist = victim:GetPos():Distance(att:GetPos())
---    local d = math.max(0, dist - 140)
+   local dist = victim:GetPos():Distance(att:GetPos())
+   local d = math.max(0, dist - 140)
 
---    -- Decay from 2 to 1 slowly as distance increases. Note that this used to be
---    -- 3+, but at that time shotgun bullets were treated like in HL2 where half
---    -- of them were hull traces that could not headshot.
---    return 1 + math.max(0, (1.0 - 0.002 * (d ^ 1.25)))
--- end
+   -- Decay from 2 to 1 slowly as distance increases. Note that this used to be
+   -- 3+, but at that time shotgun bullets were treated like in HL2 where half
+   -- of them were hull traces that could not headshot.
+   return 1 + math.max(0, (1.0 - 0.002 * (d ^ 1.25)))
+end
 
 function SWEP:SecondaryAttack()
    if self.NoSights or (not self.IronSightsPos) or self:GetReloading() then return end
