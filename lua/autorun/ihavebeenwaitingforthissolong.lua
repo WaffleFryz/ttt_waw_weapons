@@ -1229,7 +1229,7 @@ sound.Add({
 sound.Add({
 	name = 			"Test_waw.Silenced",			// <-- Sound Name That gets called for
 	channel = 		CHAN_STATIC +10,
-	volume = 		1.0,
+	volume = 		0.75,
 	sound = {			"weapons/waw_tommy/silenced_00.wav","weapons/waw_tommy/silenced_01.wav","weapons/waw_tommy/silenced_02.wav","weapons/waw_tommy/silenced_03.wav","weapons/waw_tommy/silenced_04.wav"	// <-- Sound Path
 }
 })

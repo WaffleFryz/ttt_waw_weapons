@@ -3,7 +3,7 @@ AddCSLuaFile()
 SWEP.HoldType              = "shotgun"
 
 if CLIENT then
-   SWEP.PrintName          = "Double-Barrel"
+   SWEP.PrintName          = "Model 11 DB"
    SWEP.Slot               = 2
 
    SWEP.ViewModelFlip      = false
@@ -29,11 +29,11 @@ SWEP.Primary.Automatic     = true
 SWEP.Primary.NumShots      = 8
 SWEP.Primary.Sound         = Sound( "waw_db_new.Single" )
 SWEP.Primary.Recoil        = 18
-SWEP.Primary.Blowback      = 150
+SWEP.Primary.Blowback      = 175
 
 SWEP.Secondary.Sound       = Sound( "waw_db_new.Double")
 SWEP.Secondary.Recoil      = 36
-SWEP.Secondary.Blowback    = 300
+SWEP.Secondary.Blowback    = 325
 
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
