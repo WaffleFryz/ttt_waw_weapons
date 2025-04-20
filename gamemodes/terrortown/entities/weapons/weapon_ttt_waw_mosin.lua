@@ -37,6 +37,8 @@ SWEP.UseHands			      = true
 SWEP.ViewModel             = "models/weapons/v_waw_mosin_scoped.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_mosin_irons.mdl"
 
+SWEP.DeploySpeed           = 0.5
+
 SWEP.WorldHandBoneOffset   = Vector(1, 0.6, 0.43)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(1, 9, -3)

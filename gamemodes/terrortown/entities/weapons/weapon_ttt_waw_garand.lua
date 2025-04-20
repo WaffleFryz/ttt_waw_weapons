@@ -33,6 +33,8 @@ SWEP.UseHands			   = true
 SWEP.ViewModel             = "models/weapons/v_waw_m1garand.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_m1garand.mdl"
 
+SWEP.DeploySpeed           = 0.7
+
 SWEP.WorldHandBoneOffset   = Vector(2.5, 0.6, 0.64)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(3, 13, -2)
