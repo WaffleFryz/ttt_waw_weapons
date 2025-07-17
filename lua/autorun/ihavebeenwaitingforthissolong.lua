@@ -634,7 +634,11 @@ sound.Add({
 	name = 			"waw_ppsh_new.Single",			// <-- Sound Name That gets called for
 	channel = 		CHAN_USER_BASE +10,
 	volume = 		1.0,
-	sound = 			"weapons/waw_ppsh_new/fire.wav"	// <-- Sound Path
+	sound = 		{"weapons/waw_ppsh_new/fire.wav",
+					"weapons/waw_ppsh_new/fire1.wav",
+					"weapons/waw_ppsh_new/fire2.wav",
+					"weapons/waw_ppsh_new/fire3.wav",
+					"weapons/waw_ppsh_new/fire4.wav"}	// <-- Sound Path
 })
 
 sound.Add({

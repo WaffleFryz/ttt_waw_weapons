@@ -41,7 +41,7 @@ SWEP.VOffset               = Vector(3, 13, -2)
 
 SWEP.IronSightsPos         = Vector(-2.68, -4.5, 2.65)
 SWEP.IronSightsAng         = Vector(-1.0, 0, 0)
-SWEP.ZoomFOV               = 45
+SWEP.ZoomFOV               = 70
 
 SWEP.DropOffRanges = {
     [0] = 45,

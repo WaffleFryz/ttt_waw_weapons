@@ -16,7 +16,7 @@ SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 1.4
 SWEP.Primary.Damage          = 70
-SWEP.Primary.Recoil          = 7
+SWEP.Primary.Recoil          = 9
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 5
 SWEP.Primary.ClipMax         = 15
@@ -51,7 +51,7 @@ SWEP.ZoomTime              = 0.4
 SWEP.DropOffRanges = {
    [0]    = 50,
    [1240] = 70,
-   [2480] = 9999
+   [3720] = 9999
 }
 
 SWEP.HitgroupMultipliers = {
