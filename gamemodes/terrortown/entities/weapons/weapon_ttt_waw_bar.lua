@@ -16,12 +16,12 @@ SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 0.16
 SWEP.Primary.Damage          = 34
-SWEP.Primary.Recoil          = 2
+SWEP.Primary.Recoil          = 2.5
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 20
 SWEP.Primary.ClipMax         = 60
 SWEP.Primary.DefaultClip     = 20
-SWEP.Primary.Cone            = 0.018
+SWEP.Primary.Cone            = 0.025
 SWEP.Primary.Ammo            = "Pistol"
 SWEP.Primary.Sound           = Sound("waw_bar.Single")
 
@@ -43,9 +43,9 @@ SWEP.ZoomFOV               = 70
 SWEP.ZoomTime              = 0.35
 
 SWEP.DropOffRanges = {
-    [0] = 45,
-    [480] = 40,
-    [960] = 35
+    [0] = 35,
+    [480] = 30,
+    [960] = 25
 }
 
 -- Add some zoom to ironsights for this gun
