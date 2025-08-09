@@ -16,7 +16,7 @@ SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 1.4
 SWEP.Primary.Damage          = 70
-SWEP.Primary.Recoil          = 7
+SWEP.Primary.Recoil          = 9
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 5
 SWEP.Primary.ClipMax         = 15
@@ -37,6 +37,8 @@ SWEP.UseHands			      = true
 SWEP.ViewModel             = "models/weapons/v_waw_mosin_scoped.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_mosin_irons.mdl"
 
+SWEP.DeploySpeed           = 0.5
+
 SWEP.WorldHandBoneOffset   = Vector(1, 0.6, 0.43)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)
 SWEP.VOffset               = Vector(1, 9, -3)
@@ -49,7 +51,7 @@ SWEP.ZoomTime              = 0.4
 SWEP.DropOffRanges = {
    [0]    = 50,
    [1240] = 70,
-   [2480] = 9999
+   [3720] = 9999
 }
 
 SWEP.HitgroupMultipliers = {

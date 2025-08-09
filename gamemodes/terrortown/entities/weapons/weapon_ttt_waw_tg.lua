@@ -23,7 +23,7 @@ SWEP.WeaponID              = AMMO_SHOTGUN
 SWEP.Primary.Ammo          = "Buckshot"
 SWEP.Primary.Damage        = 11
 SWEP.Primary.Cone          = 0.09
-SWEP.Primary.Delay         = 0.92
+SWEP.Primary.Delay         = 1
 SWEP.Primary.ClipSize      = 6
 SWEP.Primary.ClipMax       = 24
 SWEP.Primary.DefaultClip   = 6
@@ -40,7 +40,7 @@ SWEP.UseHands              = true
 SWEP.ViewModel             = "models/weapons/v_waw_trenchgun_new.mdl"
 SWEP.WorldModel            = "models/weapons/w_waw_trenchgun_new.mdl"
 
-SWEP.DeploySpeed           = 0.85
+SWEP.DeploySpeed           = 0.5
 
 SWEP.WorldHandBoneOffset   = Vector(1.4, 0.6, 1)
 SWEP.WorldHandBoneAngles   = Vector(-10, -5, 180)

@@ -54,17 +54,19 @@ SWEP.IronSightsAng         = Vector(0, 0, 0)
 SWEP.HeadshotMultiplier    = 1.0
 
 SWEP.DropOffRanges = {
-   [0]    = 40,
-   [80]   = 35,
-   [160]  = 30,
-   [240]  = 25,
-   [320]  = 20,
-   [480]  = 15
+   [0]    = 35,
+   [80]   = 30,
+   [160]  = 25,
+   [240]  = 20,
+   [320]  = 15,
+   [480]  = 10
 }
 
 function SWEP:PrimaryAttack()
+   if self:Clip1() >= 1 then
+      self:BlastOwner(self.Primary.Blowback)
+   end
    self.BaseClass.PrimaryAttack(self)
-   self:BlastOwner(self.Primary.Blowback)
 end
 
 function SWEP:SecondaryAttack()
