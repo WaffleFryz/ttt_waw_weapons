@@ -2,7 +2,7 @@ local UPGRADE = {}
 UPGRADE.id = "weapon_ttt_waw_fan"
 UPGRADE.class = "weapon_ttt_waw_db"
 UPGRADE.name = "Force-A-Nature"
-UPGRADE.desc = "Stronger knockback"
+UPGRADE.desc = "Stronger knockback. No fall damage while equiped"
 UPGRADE.noSound = true
 
 function UPGRADE:Apply(SWEP)
