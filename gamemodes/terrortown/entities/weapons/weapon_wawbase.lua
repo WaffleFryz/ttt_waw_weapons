@@ -246,7 +246,7 @@ function SWEP:Think()
         self.recoilOffset = LerpAngle(FrameTime() * (self.recoilResetSpeed or 5), self.recoilOffset, angle_zero)
     end
     if self.recoilOffset then
-        if self.recoilOffset.pitch == 0 and self.recoilOffset.yaw == 0 then
+        if math.abs(self.recoilOffset.pitch) <= 0.25 and math.abs(self.recoilOffset.yaw) <= 0.25 then
             self.recoilCycle = 1
         end
     end
