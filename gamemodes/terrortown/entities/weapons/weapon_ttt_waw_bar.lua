@@ -49,22 +49,22 @@ SWEP.DropOffRanges = {
 }
 
 SWEP.recoilsStart = {
-    Angle(4, 2.5, 0),
-    Angle(3, 1.5, 0),
-    Angle(3, 4, 0),
-    Angle(1, -7, 0),
-    Angle(1, -5, 0),
-    Angle(3, -6, 0)
+    Angle(2, 0.83, 0),
+    Angle(1.5, 0.5, 0),
+    Angle(1.5, 1.3, 0),
+    Angle(0.5, -2.3, 0),
+    Angle(0.5, -1.7, 0),
+    Angle(1.5, -2, 0)
 }
 
 SWEP.recoilsLoop = {
-    Angle(2, 5, 0),
-    Angle(1, 5, 0),
-    Angle(-2, 5, 0),
-    Angle(-2, -5, 0),
-    Angle(-1, -5, 0),
-    Angle(1, -5, 0),
-    Angle(2, -5, 0)
+    Angle(1, 1.7, 0),
+    Angle(0.5, 1.7, 0),
+    Angle(-1, 1.7, 0),
+    Angle(-1, -1.7, 0),
+    Angle(-0.5, -1.7, 0),
+    Angle(0.5, -1.7, 0),
+    Angle(1, -1.7, 0)
 }
 
 -- Add some zoom to ironsights for this gun
