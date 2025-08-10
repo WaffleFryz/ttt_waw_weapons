@@ -58,6 +58,17 @@ SWEP.DropOffRanges = {
    [240]  = 11
 }
 
+SWEP.bulletList = {
+   Angle(2.24, -2.8, 0),
+   Angle(1.28, 2, 0),
+   Angle(-2.12, -1.32, 0),
+   Angle(-3.08, 5.48, 0),
+   Angle(6.96, 2, 0),
+   Angle(0.08, -5.48, 0),
+   Angle(-6.44, -1.08, 0),
+   Angle(5.6, 7.04, 0)
+}
+
 function SWEP:SetupDataTables()
    self:NetworkVar("Bool", 0, "Reloading")
    self:NetworkVar("Float", 0, "ReloadTimer")

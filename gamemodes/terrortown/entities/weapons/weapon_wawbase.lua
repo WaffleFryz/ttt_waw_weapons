@@ -170,25 +170,35 @@ function SWEP:ShootBullet( dmg, recoil, numbul, cone )
             dmginfo:SetDamage(self.DropOffRanges[highest] * self.DamageScale:GetFloat())
         end
     end
- 
-    local bullet = {}
-    bullet.Num    = numbul
-    bullet.Src    = self:GetOwner():GetShootPos()
-    bullet.Dir    = self:GetOwner():GetAimVector()
-    if self.recoilOffset then
-        local bulletAngle = bullet.Dir:Angle()
-        bulletAngle:RotateAroundAxis(bulletAngle:Up(), self.recoilOffset.yaw)
-        bulletAngle:RotateAroundAxis(bulletAngle:Right(), self.recoilOffset.pitch)
-        bullet.Dir = bulletAngle:Forward()
+
+    if not self.bulletList then
+        self.bulletList = {angle_zero}
     end
-    bullet.Spread = Vector( cone, cone, 0 )
-    bullet.Tracer = 4
-    bullet.TracerName = self.Tracer or "Tracer"
-    bullet.Force  = 10
-    bullet.Damage = dmg
-    bullet.Callback = bulletCallback
- 
-    self:GetOwner():FireBullets( bullet )
+
+    self.recoilOffset = (self.recoilOffset or angle_zero)
+    
+    for _, angle in ipairs(self.bulletList) do
+        local bullet = {}
+        bullet.Num    = 1
+        bullet.Src    = self:GetOwner():GetShootPos()
+        bullet.Dir    = self:GetOwner():GetAimVector()
+        if self.recoilOffset then
+            local bulletAngle = bullet.Dir:Angle()
+            bulletAngle:RotateAroundAxis(bulletAngle:Up(), self.recoilOffset.yaw + angle.yaw)
+            bulletAngle:RotateAroundAxis(bulletAngle:Right(), self.recoilOffset.pitch + angle.pitch)
+            bullet.Dir = bulletAngle:Forward()
+        end
+        bullet.Spread = Vector( cone, cone, 0 )
+        bullet.Tracer = 4
+        bullet.TracerName = self.Tracer or "Tracer"
+        bullet.Force  = 10
+        bullet.Damage = dmg
+        bullet.Callback = bulletCallback
+    
+        self:GetOwner():FireBullets( bullet )
+    end
+
+    
     self.recoilOffset = (self.recoilOffset or angle_zero) + self:GetCurrentRecoil()
     self.recoilCycle = self.recoilCycle + 1
  
