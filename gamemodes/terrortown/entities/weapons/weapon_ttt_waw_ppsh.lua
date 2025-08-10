@@ -16,12 +16,12 @@ SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 0.048
 SWEP.Primary.Damage          = 22
-SWEP.Primary.Recoil          = 1.9
+SWEP.Primary.Recoil          = 0.5
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 71
 SWEP.Primary.ClipMax         = 142
 SWEP.Primary.DefaultClip     = 71
-SWEP.Primary.Cone            = 0.09
+SWEP.Primary.Cone            = 0.01
 SWEP.Primary.Ammo            = "SMG1"
 SWEP.Primary.Sound           = Sound("waw_ppsh_new.Single")
 
@@ -44,3 +44,24 @@ SWEP.DropOffRanges = {
     [240] = 15,
     [640] = 10
 }
+
+SWEP.recoilsStart = {
+    Angle(2, 2.49, 0),
+    Angle(3, 1.5, 0),
+    Angle(3, 3.25, 0),
+    Angle(0.75, -5.75, 0),
+    Angle(0.5, -5.1, 0),
+    Angle(1.5, 8, 0)
+}
+
+SWEP.recoilsLoop = {
+    Angle(0.5, 3, 0),
+    Angle(0.25, 3, 0),
+    Angle(-0.5, 3, 0),
+    Angle(-0.5, -3, 0),
+    Angle(-0.25, -3, 0),
+    Angle(0.25, -3, 0),
+    Angle(0.5, -3, 0)
+}
+
+SWEP.recoilResetSpeed = 1

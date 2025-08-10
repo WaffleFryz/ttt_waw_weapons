@@ -67,6 +67,8 @@ SWEP.recoilsLoop = {
     Angle(1, -1.7, 0)
 }
 
+SWEP.recoilResetSpeed = 3
+
 -- Add some zoom to ironsights for this gun
 function SWEP:SecondaryAttack()
     if not self.IronSightsPos then return end
