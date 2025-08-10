@@ -193,7 +193,7 @@ function SWEP:ShootBullet( dmg, recoil, numbul, cone )
         bullet.TracerName = self.Tracer or "Tracer"
         bullet.Force  = 10
         bullet.Damage = dmg
-        bullet.Callback = bulletCallback
+        bullet.Callback = self.bulletCallback or bulletCallback
     
         self:GetOwner():FireBullets( bullet )
     end
