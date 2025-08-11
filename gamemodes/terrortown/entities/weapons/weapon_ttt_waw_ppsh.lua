@@ -27,6 +27,7 @@ SWEP.Primary.Sound           = Sound("waw_ppsh_new.Single")
 
 SWEP.AutoSpawnable         = true
 SWEP.Spawnable             = true
+SWEP.AmmoEnt               = "item_ammo_smg1_ttt"
 
 SWEP.UseHands			   = true
 SWEP.ViewModel             = "models/weapons/v_waw_ppsh_new.mdl"
