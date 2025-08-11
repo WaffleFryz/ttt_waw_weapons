@@ -16,7 +16,7 @@ SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 0.048
 SWEP.Primary.Damage          = 22
-SWEP.Primary.Recoil          = 0.5
+SWEP.Primary.Recoil          = 0.75
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 71
 SWEP.Primary.ClipMax         = 142
@@ -47,22 +47,29 @@ SWEP.DropOffRanges = {
 }
 
 SWEP.recoilsStart = {
-    Angle(2, 2.49, 0),
-    Angle(3, 1.5, 0),
-    Angle(3, 3.25, 0),
-    Angle(0.75, -5.75, 0),
-    Angle(0.5, -5.1, 0),
-    Angle(1.5, 8, 0)
+    Angle(2, 2.25, 0),
+    Angle(3, 1.25, 0),
+    Angle(3, 3.0, 0),
+    Angle(0.75, -5.5, 0),
+    Angle(0.5, -4.75, 0),
+    Angle(1.5, 1.75, 0)
 }
 
 SWEP.recoilsLoop = {
-    Angle(0.5, 3, 0),
-    Angle(0.25, 3, 0),
-    Angle(-0.5, 3, 0),
-    Angle(-0.5, -3, 0),
-    Angle(-0.25, -3, 0),
-    Angle(0.25, -3, 0),
-    Angle(0.5, -3, 0)
+    Angle(0.25, 1.5, 0),
+    Angle(0.12, 1.5, 0),
+    Angle(-0.25, 1.5, 0),
+    Angle(-0.25, -1.5, 0),
+    Angle(-0.12, -1.5, 0),
+    Angle(0.12, -1.5, 0),
+    Angle(0.25, -1.5, 0),
+    Angle(0.25, 1.5, 0),
+    Angle(0.12, 1.5, 0),
+    Angle(-0.25, 1.5, 0),
+    Angle(-0.25, -1.5, 0),
+    Angle(-0.12, -1.5, 0),
+    Angle(0.12, -1.5, 0),
+    Angle(0.25, -1.5, 0)
 }
 
-SWEP.recoilResetSpeed = 1
+SWEP.recoilResetSpeed = 5
