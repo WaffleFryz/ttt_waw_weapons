@@ -50,12 +50,11 @@ SWEP.IronSightsPos         = Vector(-2.5, 0, 3.4)
 SWEP.IronSightsAng         = Vector(0, 0, 0)
 
 SWEP.DropOffRanges = {
-   [0]    = 25,
-   [80]   = 20,
-   [120]  = 18,
-   [160]  = 15,
-   [200]  = 13,
-   [240]  = 11
+   [0]    = 30,
+   [160]  = 25,
+   [240]  = 20,
+   [320]  = 15,
+   [480]  = 10
 }
 
 SWEP.bulletList = {

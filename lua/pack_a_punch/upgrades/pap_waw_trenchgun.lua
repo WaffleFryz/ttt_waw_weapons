@@ -8,14 +8,6 @@ UPGRADE.firerateMult = 1.5
 UPGRADE.noSound = true
 
 function UPGRADE:Apply(SWEP)
-	SWEP.DropOffRanges = {
-		[0]    = 22,
-		[80]   = 17,
-		[120]  = 15,
-		[160]  = 12,
-		[200]  = 10,
-		[240]  = 8
-	 }
 
 	-- Double shell reload
 	function SWEP:PerformReload()
