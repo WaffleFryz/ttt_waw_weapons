@@ -19,14 +19,7 @@ function ENT:Initialize()
 	self.Entity:SetSolid(SOLID_VPHYSICS)
     if SERVER and IsValid(self) then
         timer.Simple(10, function()
-            local name = "dis_" .. self:EntIndex()
-            self:SetKeyValue("targetname", name)
-            local dissolver = ents.Create("env_entity_dissolver")
-            dissolver:SetKeyValue("dissolvetype", "0")
-            dissolver:SetKeyValue("target", name)
-            dissolver:Spawn()
-            dissolver:Fire("Dissolve", "", 0)
-            dissolver:Fire("kill", "", 0)
+            self.Entity:Dissolve()
         end)
     end
 end
