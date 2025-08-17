@@ -62,6 +62,26 @@ SWEP.DropOffRanges = {
    [480]  = 10
 }
 
+SWEP.bulletList = {
+   Angle(3.36, 4.2, 0),
+   Angle(1.92, 3, 0),
+   Angle(-3.19, -1.98, 0),
+   Angle(-4.62, 8.22, 0),
+   Angle(10.44, 3, 0),
+   Angle(0.12, -8.22, 0),
+   Angle(-9.66, -1.62, 0),
+   Angle(8.4, 10.56, 0),
+
+   Angle(-3.36, 4.2, 0),
+   Angle(-1.92, 3, 0),
+   Angle(-3.19, 1.98, 0),
+   Angle(-4.62, -8.22, 0),
+   Angle(-10.44, 3, 0),
+   Angle(0.12, 8.22, 0),
+   Angle(9.66, 1.62, 0),
+   Angle(8.4, -10.56, 0)
+}
+
 function SWEP:PrimaryAttack()
    if self:Clip1() >= 1 then
       self:BlastOwner(self.Primary.Blowback)

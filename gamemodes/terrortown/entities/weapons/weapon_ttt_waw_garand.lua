@@ -49,6 +49,23 @@ SWEP.DropOffRanges = {
     [960] = 35
 }
 
+SWEP.recoilsStart = {
+    Angle(2, 0, 0),
+    Angle(1.5, 0, 0),
+    Angle(1.5, 0, 0),
+    Angle(0.5, 0, 0),
+    Angle(0.5, 0, 0),
+    Angle(1.5, 0, 0)
+}
+
+SWEP.recoilsLoop = {
+    Angle(1, 0, 0),
+    Angle(0.5, 0, 0),
+    Angle(-0.5, 0, 0)
+}
+
+SWEP.recoilResetSpeed = 8
+
 -- WAW Notes:
 -- 444 rpm, 3.4 tac, 45-35 dmg, 1500m to 2000m
 

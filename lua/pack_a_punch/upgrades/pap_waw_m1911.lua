@@ -28,7 +28,7 @@ function UPGRADE:Apply(SWEP)
       local function bulletCallback(attacker, tr, dmginfo)
          if not IsValid(attacker) then return end
 
-         util.BlastDamage(self,attacker,tr.HitPos, 128, 15)
+         util.BlastDamage(self,attacker,tr.HitPos, 150, 17)
          local fx = EffectData()
          fx:SetScale(0.2)
          fx:SetOrigin(tr.HitPos)

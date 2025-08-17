@@ -16,12 +16,12 @@ SWEP.Kind                    = WEAPON_HEAVY
 
 SWEP.Primary.Delay           = 0.16
 SWEP.Primary.Damage          = 34
-SWEP.Primary.Recoil          = 2.5
+SWEP.Primary.Recoil          = 1
 SWEP.Primary.Automatic       = true
 SWEP.Primary.ClipSize        = 20
 SWEP.Primary.ClipMax         = 60
 SWEP.Primary.DefaultClip     = 20
-SWEP.Primary.Cone            = 0.025
+SWEP.Primary.Cone            = 0.018
 SWEP.Primary.Ammo            = "Pistol"
 SWEP.Primary.Sound           = Sound("waw_bar.Single")
 
@@ -47,6 +47,27 @@ SWEP.DropOffRanges = {
     [480] = 30,
     [960] = 25
 }
+
+SWEP.recoilsStart = {
+    Angle(2, 0.83, 0),
+    Angle(1.5, 0.5, 0),
+    Angle(1.5, 1.3, 0),
+    Angle(0.5, -2.3, 0),
+    Angle(0.5, -1.7, 0),
+    Angle(1.5, -2, 0)
+}
+
+SWEP.recoilsLoop = {
+    Angle(1, 1.7, 0),
+    Angle(0.5, 1.7, 0),
+    Angle(-1, 1.7, 0),
+    Angle(-1, -1.7, 0),
+    Angle(-0.5, -1.7, 0),
+    Angle(0.5, -1.7, 0),
+    Angle(1, -1.7, 0)
+}
+
+SWEP.recoilResetSpeed = 3
 
 -- Add some zoom to ironsights for this gun
 function SWEP:SecondaryAttack()

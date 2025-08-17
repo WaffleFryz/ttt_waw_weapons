@@ -50,12 +50,22 @@ SWEP.IronSightsPos         = Vector(-2.5, 0, 3.4)
 SWEP.IronSightsAng         = Vector(0, 0, 0)
 
 SWEP.DropOffRanges = {
-   [0]    = 25,
-   [80]   = 20,
-   [120]  = 18,
-   [160]  = 15,
-   [200]  = 13,
-   [240]  = 11
+   [0]    = 30,
+   [160]  = 25,
+   [240]  = 20,
+   [320]  = 15,
+   [480]  = 10
+}
+
+SWEP.bulletList = {
+   Angle(2.24, -2.8, 0),
+   Angle(1.28, 2, 0),
+   Angle(-2.12, -1.32, 0),
+   Angle(-3.08, 5.48, 0),
+   Angle(6.96, 2, 0),
+   Angle(0.08, -5.48, 0),
+   Angle(-6.44, -1.08, 0),
+   Angle(5.6, 7.04, 0)
 }
 
 function SWEP:SetupDataTables()

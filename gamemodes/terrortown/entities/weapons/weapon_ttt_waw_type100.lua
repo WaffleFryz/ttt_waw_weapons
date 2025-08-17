@@ -49,3 +49,24 @@ SWEP.DropOffRanges = {
     [240] = 25,
     [560] = 20
 }
+
+SWEP.recoilsStart = {
+    Angle(2, -0.83, 0),
+    Angle(2.5, -0.5, 0),
+    Angle(2.5, -1.3, 0),
+    Angle(1.5, 2.3, 0),
+    Angle(1.5, 1.7, 0),
+    Angle(2.5, 2, 0)
+}
+
+SWEP.recoilsLoop = {
+    Angle(0.5, -1.7, 0),
+    Angle(0.25, -1.7, 0),
+    Angle(-0.5, -1.7, 0),
+    Angle(-0.5, 1.7, 0),
+    Angle(-0.25, 1.7, 0),
+    Angle(0.25, 1.7, 0),
+    Angle(0.5, 1.7, 0)
+}
+
+SWEP.recoilResetSpeed = 3
