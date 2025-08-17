@@ -17,9 +17,11 @@ function ENT:Initialize()
 	self:PhysicsInit(SOLID_VPHYSICS)
 	self.Entity:SetMoveType(MOVETYPE_VPHYSICS)
 	self.Entity:SetSolid(SOLID_VPHYSICS)
-    if SERVER and IsValid(self) then
+    if SERVER then
         timer.Simple(10, function()
-            self.Entity:Dissolve()
+			if IsValid(self.Entity) then
+            	self.Entity:Dissolve()
+			end
         end)
     end
 end

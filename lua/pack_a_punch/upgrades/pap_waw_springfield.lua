@@ -6,32 +6,13 @@ UPGRADE.desc = "Spawns healing plants. Bullets still hurt tho"
 
 function UPGRADE:Apply(SWEP)
 
-    local radius = 3 * UNITS_PER_METER
-    local plantRadiusSqr = radius * radius
-    local plantHeal = 1
-
-    if SERVER and !timer.Exists("springfieldHeal") then
-        timer.Create("springfieldHeal", 1, 0, function()
-            for _, ply in player.Iterator() do
-                for _, ent in ents.Iterator() do
-                    local dist = ply:GetPos():DistToSqr(ent:GetPos())
-                    if ent:GetClass() == "springfield_plant" and dist <= plantRadiusSqr and ply:Health() < ply:GetMaxHealth() then
-                        local health = math.min(ply:GetMaxHealth(), ply:Health() + plantHeal)
-                        ply:SetHealth(health)
-                        ent:TakeDamage(1, ply, ply)
-                    end
-                end
-            end
-        end)
-    end
-
     function SWEP:MakePlant(tr)
         local gren = ents.Create("springfield_plant")
         if not IsValid(gren) then return end
         gren:SetPos(tr.HitPos)
+        gren:SetOwner(SWEP.Owner)
         gren:Spawn()
         gren:PhysWake()
-        gren:GibBreakClient(tr.Normal)
     end
     
     function SWEP:ShootBullet( dmg, recoil, numbul, cone )
@@ -92,10 +73,6 @@ function UPGRADE:Apply(SWEP)
             self:GetOwner():SetEyeAngles( eyeang )
         end
     end
-end
-
-function UPGRADE:Reset()
-    if timer.Exists("springfieldHeal") then timer.Remove("springfieldHeal") end
 end
 
 TTTPAP:Register(UPGRADE)
