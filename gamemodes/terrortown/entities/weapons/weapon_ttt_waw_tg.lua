@@ -153,7 +153,7 @@ function SWEP:CanPrimaryAttack()
 end
 
 function SWEP:Think()
-   BaseClass.Think(self)
+   self.BaseClass.Think(self)
    if self:GetReloading() then
       if self:GetOwner():KeyDown(IN_ATTACK) then
          self:FinishReload()

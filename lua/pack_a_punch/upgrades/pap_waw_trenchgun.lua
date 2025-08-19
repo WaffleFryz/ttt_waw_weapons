@@ -18,15 +18,20 @@ function UPGRADE:Apply(SWEP)
 
 	function SWEP:MakeShovel(tr)
 		if(tr.Entity:IsPlayer()) then
-		   local gren = ents.Create("trench_shovel")
-		   if not IsValid(gren) then return end
-		   gren:SetOwner(self:GetOwner())
-		   gren:SetPos(tr.HitPos + Vector(0, 0, 250))
-		   gren:Spawn()
-		   gren:GetPhysicsObject():SetVelocity(Vector(0, 0, -550))
-		   gren:PhysWake()
+			local gren = ents.Create("trench_shovel")
+			if not IsValid(gren) then return end
+			local secondTrace = util.TraceLine({
+				start = tr.Entity:GetPos(),
+				endpos = tr.Entity:GetPos() + Vector(0, 0, 250),
+				filter = function( ent ) return ( ent:GetClass() == "prop_physics" ) end
+			})
+			gren:SetOwner(self:GetOwner())
+			gren:SetPos(secondTrace.HitPos)
+			gren:Spawn()
+			gren:GetPhysicsObject():SetVelocity(Vector(0, 0, -550))
+			gren:PhysWake()
 		end
-	  end
+	end
 	  
 	function SWEP:ShootBullet( dmg, recoil, numbul, cone )
 	
